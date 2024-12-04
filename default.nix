@@ -7,7 +7,7 @@ let
     cargoLock = {
       lockFile = ./Cargo.lock;
     };
-    nativeBuildInputs = [ pkgs.pkg-config ];
+    nativeBuildInputs = with pkgs; [ rustc cargo gcc rustfmt clippy pkgs.pkg-config];
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 in

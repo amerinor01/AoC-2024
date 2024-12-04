@@ -4,6 +4,7 @@ use std::fs;
 pub fn first() {
     // --snip--
     let file_path = String::from("inputs/day2.txt");
+    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file");
 
     let r: i32 = fs::read_to_string(file_path.clone())
         .expect("Should have been able to read the file")
@@ -28,7 +29,7 @@ pub fn first() {
             // Correct the logical expression
             let valid_sign = (min_diff > 0 && max_diff > 0) || (min_diff < 0 && max_diff < 0); // Both are either positive or negative
             let valid_range = min_diff >= -3 && max_diff < 4; // Range check
-            valid_sign && valid_range // Combine both conditions    
+            valid_sign && valid_range // Combine both conditions      //((min > 0 && max > 0) || (min < 0 && max < 0)) && (min >= -3 && max < 4)
         })
         .count() as i32;
     println!("{:?}", r);
